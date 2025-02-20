@@ -1,4 +1,4 @@
-## Hi there 👋
+## Intelligence Data Processing Lab, The Chosun University of Korea
 
 <!--
 **IDPLab-chosun/IDPLab-chosun** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
