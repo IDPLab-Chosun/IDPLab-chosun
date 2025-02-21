@@ -249,7 +249,7 @@
 
   <!-- Hi, We are IDP Lab. -->
   <g transform="translate(10, 0)" class="msg-1 bubble">
-    <rect width="222" height="42" rx="18" />
+    <rect width="190" height="42" rx="18" />
     <text x="15" y="27">Hi, We are IDP Lab.</text>
   </g>
 
@@ -272,7 +272,7 @@
 
   <!-- From Gwangju... -->
   <g transform="translate(10, 48)" class="msg-2">
-    <rect width="549" height="66" rx="18" class="bubble" />
+    <rect width="535" height="66" rx="18" class="bubble" />
     <text x="15" y="27">We are from Gwangju, Rep. of Korea where it’s supposed to be</text>
     <text x="15" y="50">{degC}° C ({degF}° F) and <tspan class="emoji">{weatherEmoji}</tspan> today.</text>
   </g>
