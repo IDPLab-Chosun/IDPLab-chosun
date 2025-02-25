@@ -1,12 +1,10 @@
 const WEATHER_API_KEY = process.env.WEATHER_API_KEY
 
-let fs = require('fs')
-let formatDistance = require('date-fns/formatDistance')
-let weather = require('openweather-apis')
-let qty = require('js-quantities')
-
-import fs from 'fs';
-import path from 'path';
+const fs = require('fs');
+const path = require('path');
+const formatDistance = require('date-fns/formatDistance');
+const weather = require('openweather-apis');
+const qty = require('js-quantities');
 
 
 const emojis = {
