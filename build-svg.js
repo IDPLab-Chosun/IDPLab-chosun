@@ -27,16 +27,18 @@ const psTime = formatDistance(new Date(2020, 11, 14), today, { addSuffix: false 
 
 // 날씨 API 설정
 weather.setLang('en');
+weather.setCity('Seoul');
 weather.setCoordinate(37.517235, 127.047325);
 weather.setUnits('imperial');
 weather.setAPPID(WEATHER_API_KEY);
 
 async function fetchWeatherAndUpdateSVG() {
   return new Promise((resolve, reject) => {
-    weather.getWeatherOneCall(async (err, data) => {
+    weather.getAllWeather((err, data) => {
       if (err) {
-        console.error("날씨 데이터를 가져오는 중 오류 발생:", err);
-        return reject(err);
+          console.error("날씨 데이터를 가져오는 중 오류 발생:", err);
+      } else {
+          console.log(data);
       }
 
       const degF = Math.round(data.daily[0].temp.max);
