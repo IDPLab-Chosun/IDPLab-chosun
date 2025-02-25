@@ -43,3 +43,7 @@ jobs:
       - name: Run tests
         run: |
           npm test || (echo "Tests failed!" && exit 1)
+
+      - name: Install dependencies
+        run: npm ci
+
