@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-import dotenv from 'dotenv';
+import 'dotenv/config';
 import formatDistance from 'date-fns/formatDistance';
 import weather from 'openweather-apis';
 
