@@ -1,5 +1,5 @@
 {
-  "type": "module"
+  "type": "module",
   "name": "readme-messages",
   "version": "0.0.0",
   "devDependencies": {
