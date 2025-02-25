@@ -23,7 +23,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Validate ENV Variables
         run: |
@@ -37,8 +37,7 @@ jobs:
       - name: Run build-svg.js
         env:
           WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
-        run: |
-          node build-svg.js || (echo "Error: build-svg.js failed!" && exit 1)
+        run: node build-svg.js
 
       - name: Run tests
         run: |
