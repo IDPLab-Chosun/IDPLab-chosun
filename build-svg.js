@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from 'fs/promises';
 import path from 'path';
 import dotenv from 'dotenv';
 import formatDistance from 'date-fns/formatDistance';
@@ -17,7 +17,9 @@ const emojis = {
 
 // 시간 변환 함수
 function convertTZ(date, tzString) {
-  return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", { timeZone: tzString }));
+  return new Date(
+    (typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", { timeZone: tzString })
+  );
 }
 
 // 오늘 날짜 가져오기
@@ -48,8 +50,10 @@ async function fetchWeatherAndUpdateSVG() {
     const degC = Math.round(data.main.temp); // getAllWeather()는 main.temp 사용
     const icon = data.weather[0].icon;
 
-    // SVG 템플릿 읽기
-    let svgData = await fs.readFile('template.svg', 'utf-8');
+    // SVG 템플릿 읽기 (절대 경로 사용도 가능)
+    const templatePath = path.resolve('template.svg');
+    let svgData = await fs.readFile(templatePath, 'utf-8');
+    console.log("📂 SVG 템플릿 파일을 성공적으로 읽음:", templatePath);
 
     // 데이터 삽입
     svgData = svgData
@@ -58,18 +62,18 @@ async function fetchWeatherAndUpdateSVG() {
       .replace('{psTime}', psTime)
       .replace('{todayDay}', todayDay);
 
-    // SVG 파일 저장
-    await fs.writeFile('chat.svg', svgData);
-    console.log("✅ SVG 파일이 성공적으로 업데이트되었습니다.");
-    fs.writeFileSync('chat.svg', svgData);
-    console.log("✅ (동기 방식) chat.svg 파일 저장 완료!");
-    fs.access('chat.svg', fs.constants.F_OK, (err) => {
-      if (err) {
-        console.error("🚨 chat.svg 파일이 존재하지 않습니다!", err);
-      } else {
-        console.log("✅ chat.svg 파일이 존재합니다!");
-      }
-    });
+    // SVG 파일 저장 (절대 경로 사용)
+    const outputPath = path.resolve('chat.svg');
+    await fs.writeFile(outputPath, svgData);
+    console.log("✅ SVG 파일이 성공적으로 업데이트되었습니다:", outputPath);
+
+    // 파일 존재 여부 확인
+    try {
+      await fs.access(outputPath);
+      console.log("✅ chat.svg 파일이 존재합니다!");
+    } catch (err) {
+      console.error("🚨 chat.svg 파일이 존재하지 않습니다!", err);
+    }
   } catch (error) {
     console.error("🚨 오류 발생:", error);
   }
