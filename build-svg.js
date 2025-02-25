@@ -1,8 +1,8 @@
-const fs = require('fs').promises;
-const path = require('path');
-const dotenv = require('dotenv');
-const formatDistance = require('date-fns/formatDistance');
-const weather = require('openweather-apis');
+import fs from 'fs/promises';
+import path from 'path';
+import dotenv from 'dotenv';
+import formatDistance from 'date-fns/formatDistance';
+import weather from 'openweather-apis';
 
 dotenv.config();  // .env 파일 로드
 
