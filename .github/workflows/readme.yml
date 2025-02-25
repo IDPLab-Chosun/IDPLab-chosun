@@ -20,7 +20,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'npm'
 
       - name: Install dependencies
         run: npm install
@@ -48,4 +47,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Run script
+        env:
+          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}  # GitHub Secrets 사용
+        run: node build-svg.js
 
