@@ -5,6 +5,10 @@ let formatDistance = require('date-fns/formatDistance')
 let weather = require('openweather-apis')
 let qty = require('js-quantities')
 
+import fs from 'fs';
+import path from 'path';
+
+
 const emojis = {
   '01d': '☀️',
   '02d': '⛅️',
