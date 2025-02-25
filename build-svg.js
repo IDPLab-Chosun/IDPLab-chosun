@@ -61,6 +61,15 @@ async function fetchWeatherAndUpdateSVG() {
     // SVG 파일 저장
     await fs.writeFile('chat.svg', svgData);
     console.log("✅ SVG 파일이 성공적으로 업데이트되었습니다.");
+    fs.writeFileSync('chat.svg', svgData);
+    console.log("✅ (동기 방식) chat.svg 파일 저장 완료!");
+    fs.access('chat.svg', fs.constants.F_OK, (err) => {
+      if (err) {
+        console.error("🚨 chat.svg 파일이 존재하지 않습니다!", err);
+      } else {
+        console.log("✅ chat.svg 파일이 존재합니다!");
+      }
+    });
   } catch (error) {
     console.error("🚨 오류 발생:", error);
   }
