@@ -25,5 +25,21 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Validate ENV Variables
+        run: |
+          if [ -z "$WEATHER_API_KEY" ]; then
+            echo "Missing WEATHER_API_KEY"
+            exit 1
+          fi
+        env:
+          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+
       - name: Run build-svg.js
-        run: node build-svg.js
+        env:
+          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+        run: |
+          node build-svg.js || (echo "Error: build-svg.js failed!" && exit 1)
+
+      - name: Run tests
+        run: |
+          npm test || (echo "Tests failed!" && exit 1)
