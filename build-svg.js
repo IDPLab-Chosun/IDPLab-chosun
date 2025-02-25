@@ -1,4 +1,4 @@
-import fs from 'fs/promises';
+import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
 import formatDistance from 'date-fns/formatDistance';
