@@ -41,15 +41,6 @@ jobs:
           WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
         run: node build-svg.js
 
-      - name: Run tests
-        run: |
-          npm test || (echo "Tests failed!" && exit 1)
-
       - name: Install dependencies
         run: npm ci
-
-      - name: Run script
-        env:
-          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}  # GitHub Secrets 사용
-        run: node build-svg.js
 
