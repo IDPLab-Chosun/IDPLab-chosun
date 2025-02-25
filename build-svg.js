@@ -6,6 +6,8 @@ import weather from 'openweather-apis';
 
 dotenv.config();  // .env 파일 로드
 
+console.log("API Key:", process.env.WEATHER_API_KEY ? "Loaded" : "Not Found");
+
 const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
 
 const emojis = {
