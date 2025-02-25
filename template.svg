@@ -302,7 +302,7 @@
 
   <!-- site -->
   <g transform="translate(10, 192)" class="msg-4">
-    <rect width="405" height="42" rx="18.0355" class="bubble" />
+    <rect width="450" height="42" rx="18.0355" class="bubble" />
     <text x="15" y="27">
       You can find us on
       <a xlink:href="https://nslab-cuk.github.io/">https://IDPLab-chosun.github.io/</a>
