@@ -24,12 +24,22 @@ jobs:
 
       - name: Check Git Status
         run: git status
+
+      - name: Force Add & Commit
+        run: |
+          git config --global user.name "Jin Hyung Park"
+          git config --global user.email "hophfg@yahoo.co.kr"
+          git add --all
+          git commit -m "Auto updating chat.svg"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Commit changes
         uses: EndBug/add-and-commit@v4
         with:
-          author_name: Jin Hyung Park
-          author_email: hophfg@yahoo.co.kr
+          author_name: IDPLab-chosun
+          author_email: idplab4127@gmail.com
           message: "Auto updating my readme"
           add: "*.svg"
         env:
