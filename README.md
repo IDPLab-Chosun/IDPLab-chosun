@@ -1,6 +1,5 @@
 ## Intelligent Data Processing Lab., The Chosun University, Rep. of Korea
 
-## 🌦️ 현재 날씨
 ![현재 날씨](chat.svg)
 
 ![Image](https://github.com/user-attachments/assets/24532d9f-03b1-4ff2-9136-a640993b6736)
