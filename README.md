@@ -1,6 +1,9 @@
 ## Intelligent Data Processing Lab., The Chosun University, Rep. of Korea
 
+![message_svg](https://github.com/IDPLab-chosun/IDPLab-chosun/blob/master/chat.svg)
+
 ![Image](https://github.com/user-attachments/assets/24532d9f-03b1-4ff2-9136-a640993b6736)
+
 
 <!--
 **IDPLab-chosun/IDPLab-chosun** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
