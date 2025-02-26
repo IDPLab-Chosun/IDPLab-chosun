@@ -1,9 +1,11 @@
-const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
+const fs = require("fs");
+const formatDistance = require("date-fns/formatDistance");
+const fetch = require("node-fetch"); // 직접 API 요청
+const qty = require("js-quantities");
 
-let fs = require("fs");
-let formatDistance = require("date-fns/formatDistance");
-let weather = require("openweather-apis");
-let qty = require("js-quantities");
+const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
+const CITY = "Seoul"; // 변경 가능
+const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${WEATHER_API_KEY}&units=imperial`;
 
 const emojis = {
   "01d": "☀️",
@@ -31,35 +33,36 @@ function convertTZ(date, tzString) {
     })
   );
 }
+
 const today = convertTZ(new Date(), "Asia/Seoul");
 const todayDay = new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(today);
-
 const psTime = formatDistance(new Date(2020, 12, 14), today, {
   addSuffix: false,
 });
 
-// Today's weather
-weather.setLang("en");
-weather.setCoordinate(37.517235, 127.047325); // 서울 좌표
-weather.setUnits("imperial");
-weather.setAPPID(WEATHER_API_KEY);
+// OpenWeather API 요청
+async function fetchWeather() {
+  try {
+    const response = await fetch(API_URL);
+    if (!response.ok) throw new Error(`API request failed: ${response.statusText}`);
 
-// ⬇ 기존 getCurrentWeather() → getWeather()로 변경 ⬇
-weather.getWeather((err, data) => {
-  if (err) {
-    console.error("❌ ERROR: Unable to fetch weather data:", err);
-    return;
+    const data = await response.json();
+    if (!data || !data.main || !data.weather) {
+      throw new Error("Invalid weather data received. Please check your API key.");
+    }
+
+    const degF = Math.round(data.main.temp);
+    const degC = Math.round((degF - 32) * 5 / 9);
+    const icon = data.weather[0].icon;
+
+    updateSVG(degF, degC, icon);
+  } catch (error) {
+    console.error("❌ ERROR: ", error);
   }
+}
 
-  if (!data || !data.main || !data.weather) {
-    console.error("❌ ERROR: Invalid weather data received. Please check your API key.");
-    return;
-  }
-
-  const degF = Math.round(data.main.temp);
-  const degC = Math.round((degF - 32) * 5 / 9); // 화씨 -> 섭씨 변환
-  const icon = data.weather[0].icon;
-
+// SVG 업데이트
+function updateSVG(degF, degC, icon) {
   fs.readFile("template.svg", "utf-8", (error, svgData) => {
     if (error) {
       console.error("❌ ERROR: Unable to read template.svg:", error);
@@ -80,4 +83,7 @@ weather.getWeather((err, data) => {
       }
     });
   });
-});
+}
+
+// 실행
+fetchWeather();
