@@ -44,7 +44,8 @@ weather.setCoordinate(37.517235, 127.047325); // 서울 좌표
 weather.setUnits("imperial");
 weather.setAPPID(WEATHER_API_KEY);
 
-weather.getCurrentWeather((err, data) => {
+// ⬇ 기존 getCurrentWeather() → getWeather()로 변경 ⬇
+weather.getWeather((err, data) => {
   if (err) {
     console.error("❌ ERROR: Unable to fetch weather data:", err);
     return;
