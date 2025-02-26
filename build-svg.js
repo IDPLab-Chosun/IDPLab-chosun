@@ -1,10 +1,9 @@
 const fs = require("fs");
+const https = require("https");
 const formatDistance = require("date-fns/formatDistance");
-const fetch = require("node-fetch"); // 직접 API 요청
-const qty = require("js-quantities");
 
 const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
-const CITY = "Seoul"; // 변경 가능
+const CITY = "Seoul"; // 원하는 도시 이름
 const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${WEATHER_API_KEY}&units=imperial`;
 
 const emojis = {
@@ -41,24 +40,35 @@ const psTime = formatDistance(new Date(2020, 12, 14), today, {
 });
 
 // OpenWeather API 요청
-async function fetchWeather() {
-  try {
-    const response = await fetch(API_URL);
-    if (!response.ok) throw new Error(`API request failed: ${response.statusText}`);
+function fetchWeather() {
+  https.get(API_URL, (res) => {
+    let data = "";
 
-    const data = await response.json();
-    if (!data || !data.main || !data.weather) {
-      throw new Error("Invalid weather data received. Please check your API key.");
-    }
+    // 데이터 수신 중
+    res.on("data", (chunk) => {
+      data += chunk;
+    });
 
-    const degF = Math.round(data.main.temp);
-    const degC = Math.round((degF - 32) * 5 / 9);
-    const icon = data.weather[0].icon;
+    // 응답 완료
+    res.on("end", () => {
+      try {
+        const weatherData = JSON.parse(data);
+        if (!weatherData || !weatherData.main || !weatherData.weather) {
+          throw new Error("Invalid weather data received. Please check your API key.");
+        }
 
-    updateSVG(degF, degC, icon);
-  } catch (error) {
-    console.error("❌ ERROR: ", error);
-  }
+        const degF = Math.round(weatherData.main.temp);
+        const degC = Math.round((degF - 32) * 5 / 9);
+        const icon = weatherData.weather[0].icon;
+
+        updateSVG(degF, degC, icon);
+      } catch (error) {
+        console.error("❌ ERROR: ", error.message);
+      }
+    });
+  }).on("error", (error) => {
+    console.error("❌ ERROR: Unable to fetch weather data:", error.message);
+  });
 }
 
 // SVG 업데이트
