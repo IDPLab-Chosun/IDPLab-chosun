@@ -226,10 +226,10 @@
 
   </g>
 
-  <!-- Hi, I'm Sigrid Jin -->
+  <!-- Hi, We are IDP Lab. -->
   <g transform="translate(10, 0)" class="msg-1 bubble">
     <rect width="265" height="42" rx="18.0355" />
-    <text x="15" y="27">Hello, we are NS Lab @ CUK.</text>
+    <text x="15" y="27">Hi, We are IDP Lab.</text>
   </g>
 
   <!-- typing 2 -->
@@ -250,10 +250,10 @@
 
   </g>
 
-  <!-- From Columbus... -->
+  <!-- From Gwangju... -->
   <g transform="translate(10, 48)" class="msg-2">
     <rect width="540" height="66.1302" rx="18.0355" class="bubble" />
-    <text x="15" y="27">We are from Bucheon, Rep. of Korea where it’s supposed to be</text>
+    <text x="15" y="27">We are from Gwangju, Rep. of Korea where it’s supposed to be</text>
     <text x="15" y="50">{degC}° C and <tspan class="emoji">{weatherEmoji}</tspan> today.</text>
   </g>
 
@@ -279,7 +279,7 @@
   <g transform="translate(10, 120)" class="msg-3">
     <rect width="480" height="66.1302" rx="18.0355" class="bubble" />
     <text x="15" y="27">We study a broad range of theories and methodologies</text>
-    <text x="15" y="50">in graph mining and graph ML.</text>
+    <text x="15" y="50">in digital healthcare for advanced mobility.</text>
   </g>
 
   <!-- typing 4 -->
@@ -305,7 +305,7 @@
     <rect width="405" height="42" rx="18.0355" class="bubble" />
     <text x="15" y="27">
       You can find us on
-      <a xlink:href="https://nslab-cuk.github.io/">https://nslab-cuk.github.io/</a>
+      <a xlink:href="https://IDPLab-chosun.github.io/">https://IDPLab-chosun.github.io/</a>
     </text>
   </g>
 
