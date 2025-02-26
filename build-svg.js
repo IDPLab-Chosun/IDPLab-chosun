@@ -1,63 +1,82 @@
-const WEATHER_API_KEY = process.env.WEATHER_API_KEY
+const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
 
-let fs = require('fs')
-let formatDistance = require('date-fns/formatDistance')
-let weather = require('openweather-apis')
-let qty = require('js-quantities')
+let fs = require("fs");
+let formatDistance = require("date-fns/formatDistance");
+let weather = require("openweather-apis");
+let qty = require("js-quantities");
 
 const emojis = {
-  '01d': '☀️',
-  '02d': '⛅️',
-  '03d': '☁️',
-  '04d': '☁️',
-  '09d': '🌧',
-  '10d': '🌦',
-  '11d': '🌩',
-  '13d': '❄️',
-  '50d': '🌫'
+  "01d": "☀️",
+  "02d": "⛅️",
+  "03d": "☁️",
+  "04d": "☁️",
+  "09d": "🌧",
+  "10d": "🌦",
+  "11d": "🌩",
+  "13d": "❄️",
+  "50d": "🌫",
+};
+
+// API 키 확인
+if (!WEATHER_API_KEY) {
+  console.error("❌ ERROR: WEATHER_API_KEY is not defined. Please check your GitHub Secrets.");
+  process.exit(1);
 }
 
 // Time working at PlanetScale
 function convertTZ(date, tzString) {
-    return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));   
+  return new Date(
+    (typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {
+      timeZone: tzString,
+    })
+  );
 }
 const today = convertTZ(new Date(), "Asia/Seoul");
-const todayDay = new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(today);
+const todayDay = new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(today);
 
 const psTime = formatDistance(new Date(2020, 12, 14), today, {
-  addSuffix: false
-})
+  addSuffix: false,
+});
 
 // Today's weather
-weather.setLang('en')
-weather.setCoordinate(37.517235, 127.047325)
-weather.setUnits('imperial')
-weather.setAPPID(WEATHER_API_KEY)
+weather.setLang("en");
+weather.setCoordinate(37.517235, 127.047325); // 서울 좌표
+weather.setUnits("imperial");
+weather.setAPPID(WEATHER_API_KEY);
 
-weather.getWeatherOneCall(function (err, data) {
-  if (err) console.log(err)
+weather.getCurrentWeather((err, data) => {
+  if (err) {
+    console.error("❌ ERROR: Unable to fetch weather data:", err);
+    return;
+  }
 
-  const degF = Math.round(data.daily[0].temp.max)
-  const degC = Math.round(qty(`${degF} tempF`).to('tempC').scalar)
-  const icon = data.daily[0].weather[0].icon
+  if (!data || !data.main || !data.weather) {
+    console.error("❌ ERROR: Invalid weather data received. Please check your API key.");
+    return;
+  }
 
-  fs.readFile('template.svg', 'utf-8', (error, data) => {
+  const degF = Math.round(data.main.temp);
+  const degC = Math.round((degF - 32) * 5 / 9); // 화씨 -> 섭씨 변환
+  const icon = data.weather[0].icon;
+
+  fs.readFile("template.svg", "utf-8", (error, svgData) => {
     if (error) {
-      console.error(error)
-      return
+      console.error("❌ ERROR: Unable to read template.svg:", error);
+      return;
     }
 
-    data = data.replace('{degF}', degF)
-    data = data.replace('{degC}', degC)
-    data = data.replace('{weatherEmoji}', emojis[icon])
-    data = data.replace('{psTime}', psTime)
-    data = data.replace('{todayDay}', todayDay)
+    svgData = svgData.replace("{degF}", degF);
+    svgData = svgData.replace("{degC}", degC);
+    svgData = svgData.replace("{weatherEmoji}", emojis[icon] || "❓");
+    svgData = svgData.replace("{psTime}", psTime);
+    svgData = svgData.replace("{todayDay}", todayDay);
 
-    data = fs.writeFile('chat.svg', data, (err) => {
+    fs.writeFile("chat.svg", svgData, (err) => {
       if (err) {
-        console.error(err)
-        return
+        console.error("❌ ERROR: Unable to write chat.svg:", err);
+      } else {
+        console.log("✅ Successfully updated chat.svg with current weather data.");
       }
-    })
-  })
-})
+    });
+  });
+});
