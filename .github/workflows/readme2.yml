@@ -27,8 +27,8 @@ jobs:
 
       - name: Force Add & Commit
         run: |
-          git config --global user.name "Jin Hyung Park"
-          git config --global user.email "hophfg@yahoo.co.kr"
+          git config --global user.name "IDPLab-chosun"
+          git config --global user.email "idplab4127@gmail.com"
           git add --all
           git commit -m "Auto updating chat.svg"
           git push
