@@ -1,4 +1,4 @@
-<svg width="550" height="400" viewBox="0 0 550 400" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="550" height="320" viewBox="0 0 550 320" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <style>
     .bubble {
       fill: #e9e9eb;
@@ -226,10 +226,10 @@
 
   </g>
 
-  <!-- Hi, I'm Sigrid Jin -->
+  <!-- Hi, We are IDP Lab. -->
   <g transform="translate(10, 0)" class="msg-1 bubble">
-    <rect width="159" height="42" rx="18.0355" />
-    <text x="15" y="27">Hi, I'm Sigrid Jin</text>
+    <rect width="200" height="42" rx="18.0355" />
+    <text x="15" y="27">Hi, We are IDP Lab.</text>
   </g>
 
   <!-- typing 2 -->
@@ -250,11 +250,11 @@
 
   </g>
 
-  <!-- From Columbus... -->
+  <!-- From Gwangju... -->
   <g transform="translate(10, 48)" class="msg-2">
-    <rect width="425" height="66.1302" rx="18.0355" class="bubble" />
-    <text x="15" y="27">I am from Seoul, Korea where it’s supposed to be</text>
-    <text x="15" y="50">64° F (18° C) and <tspan class="emoji">☁️</tspan> today.</text>
+    <rect width="540" height="66.1302" rx="18.0355" class="bubble" />
+    <text x="15" y="27">We are from Gwangju, Rep. of Korea where it’s supposed to be</text>
+    <text x="15" y="50">8° C and <tspan class="emoji">☀️</tspan> today.</text>
   </g>
 
   <!-- typing 3 -->
@@ -277,9 +277,9 @@
 
   <!-- Work ... -->
   <g transform="translate(10, 120)" class="msg-3">
-    <rect width="459" height="66.1302" rx="18.0355" class="bubble" />
-    <text x="15" y="27">I’m eager to challenge new things!</text>
-    <text x="15" y="50">Now extensively learning ZK and LLM fields.</text>
+    <rect width="480" height="66.1302" rx="18.0355" class="bubble" />
+    <text x="15" y="27">We study a broad range of theories and methodologies</text>
+    <text x="15" y="50">in digital healthcare for advanced mobility.</text>
   </g>
 
   <!-- typing 4 -->
@@ -302,10 +302,10 @@
 
   <!-- Twitter -->
   <g transform="translate(10, 192)" class="msg-4">
-    <rect width="415" height="42" rx="18.0355" class="bubble" />
+    <rect width="465" height="42" rx="18.0355" class="bubble" />
     <text x="15" y="27">
-      Find me on
-      <a xlink:href="https://twitter.com/sigridjin_eth">https://twitter.com/sigridjin_eth</a>
+      You can find us on
+      <a xlink:href="https://IDPLab-chosun.github.io/">https://IDPLab-chosun.github.io/</a>
     </text>
   </g>
 
@@ -329,7 +329,8 @@
 
   <!-- Thanks -->
   <g transform="translate(10, 240)" class="msg-5">
-    <rect width="255" height="66.13" rx="18.0355" class="bubble" />
-    <text x="15" y="47">Have a great Tuesday! <tspan class="emoji">👋</tspan></text>
+    <rect width="365" height="66.13" rx="18.0355" class="bubble" />
+    <text x="15" y="27">Thank you for your attention to our team.</text>
+    <text x="15" y="47">Have a great Wednesday! <tspan class="emoji">👋</tspan></text>
   </g>
 </svg>
