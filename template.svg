@@ -228,7 +228,7 @@
 
   <!-- Hi, We are IDP Lab. -->
   <g transform="translate(10, 0)" class="msg-1 bubble">
-    <rect width="200" height="42" rx="18.0355" />
+    <rect width="190" height="42" rx="18.0355" />
     <text x="15" y="27">Hi, We are IDP Lab.</text>
   </g>
 
@@ -277,7 +277,7 @@
 
   <!-- Work ... -->
   <g transform="translate(10, 120)" class="msg-3">
-    <rect width="480" height="66.1302" rx="18.0355" class="bubble" />
+    <rect width="455" height="66.1302" rx="18.0355" class="bubble" />
     <text x="15" y="27">We study a broad range of theories and techniques</text>
     <text x="15" y="50">in biometrics for advanced mobility.</text>
   </g>
@@ -302,7 +302,7 @@
 
   <!-- Twitter -->
   <g transform="translate(10, 192)" class="msg-4">
-    <rect width="465" height="42" rx="18.0355" class="bubble" />
+    <rect width="455" height="42" rx="18.0355" class="bubble" />
     <text x="15" y="27">
       You can find us on
       <a xlink:href="https://IDPLab-chosun.github.io/">https://IDPLab-chosun.github.io/</a>
