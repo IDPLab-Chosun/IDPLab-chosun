@@ -254,7 +254,7 @@
   <g transform="translate(10, 48)" class="msg-2">
     <rect width="540" height="66.1302" rx="18.0355" class="bubble" />
     <text x="15" y="27">We are from Gwangju, Rep. of Korea where it’s supposed to be</text>
-    <text x="15" y="50">12° C and <tspan class="emoji">☀️</tspan> today.</text>
+    <text x="15" y="50">9° C and <tspan class="emoji">⛅️</tspan> today.</text>
   </g>
 
   <!-- typing 3 -->
@@ -278,8 +278,8 @@
   <!-- Work ... -->
   <g transform="translate(10, 120)" class="msg-3">
     <rect width="480" height="66.1302" rx="18.0355" class="bubble" />
-    <text x="15" y="27">We study a broad range of theories and methodologies</text>
-    <text x="15" y="50">in digital healthcare for advanced mobility.</text>
+    <text x="15" y="27">We study a broad range of theories and techniques</text>
+    <text x="15" y="50">in biometrics for advanced mobility.</text>
   </g>
 
   <!-- typing 4 -->
