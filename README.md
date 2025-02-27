@@ -8,7 +8,6 @@ The Intelligent Data Processing Lab. (IDP Lab) in Chosun University study on bio
 Our vision is to analyze cutting-edge technologies and provide innovative solutions, contributing to solving various industrial and societal challenges.
 Our goal is to design robust and reliable systems by leveraging generative and multimodal learning-based data processing technologies.
 
-![Image](https://github.com/user-attachments/assets/12b392fd-8604-4e63-bef6-27bdff792ad2)
 ![Image](https://github.com/user-attachments/assets/7ea0cc94-d43a-4ef3-a6b6-3a161c78784b)
 
 <!--
