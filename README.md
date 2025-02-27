@@ -9,6 +9,7 @@ Our vision is to analyze cutting-edge technologies and provide innovative soluti
 Our goal is to design robust and reliable systems by leveraging generative and multimodal learning-based data processing technologies.
 
 ![Image](https://github.com/user-attachments/assets/12b392fd-8604-4e63-bef6-27bdff792ad2)
+![Image](https://github.com/user-attachments/assets/7ea0cc94-d43a-4ef3-a6b6-3a161c78784b)
 
 <!--
 **IDPLab-chosun/IDPLab-chosun** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
