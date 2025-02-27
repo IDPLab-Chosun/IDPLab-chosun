@@ -4,9 +4,11 @@
 
 ![Image](https://github.com/user-attachments/assets/24532d9f-03b1-4ff2-9136-a640993b6736)
 
-The Intelligent Data Processing Lab. (IDP Lab) at Chosun University conducts research on biometrics, digital health, security, explainable AI (XAI), and advanced mobility. 
-Our goal is to develop safer and more reliable systems by leveraging AI-based data processing technologies. 
-By researching cutting-edge technologies and providing innovative solutions, we aim to contribute to solving various industrial and societal challenges.
+The Intelligent Data Processing Lab. (IDP Lab) in Chosun University study on biometrics, digital health, security, explainable AI (XAI) for advanced mobility. 
+Our vision is to analyze cutting-edge technologies and provide innovative solutions, contributing to solving various industrial and societal challenges.
+Our goal is to design robust and reliable systems by leveraging generative and multimodal learning-based data processing technologies.
+
+
 
 <!--
 **IDPLab-chosun/IDPLab-chosun** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
